@@ -1,0 +1,20 @@
+# Sample service file for systemd
+# copy this to /lib/systemd/system/
+# Run at startup: 
+#	systemctl enable foo.service
+#	(replace enable with: start, stop, restart)
+# Status:
+#	systemctl status foo.service
+#	systemctl | grep html 
+
+[Unit]
+Description=HTTPS server to view /proc on port 8042 (httpS)
+
+[Service]
+User=root
+WorkingDirectory=/opt/10-HttpsProcTimer-copy/
+ExecStart=/usr/bin/node /opt/10-HttpsProcTimer-copy/server.js
+SyslogIdentifier=HttpsProcServer
+
+[Install]
+WantedBy=multi-user.target

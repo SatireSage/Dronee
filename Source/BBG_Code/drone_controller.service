@@ -1,0 +1,9 @@
+[Unit]
+Description=Drone controller program that sends packets over BLE to a connected drone
+
+[Service]
+User=root
+ExecStart=/home/debian/droneController
+
+[Install]
+WantedBy=multi-user.target
